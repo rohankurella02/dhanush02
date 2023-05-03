@@ -40,8 +40,7 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
-    //set header for serving javascript file
-    res.setHeader('Content-Type', 'text/javascript');
+    
     res.sendFile(path.resolve('build', 'index.html'));
 })
 
