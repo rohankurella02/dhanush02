@@ -15,6 +15,7 @@
     "bootstrap-icons": "^1.10.5",
     "chart.js": "^4.3.0",
     "cloudinary": "^1.36.3",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "install": "^0.13.0",
