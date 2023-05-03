@@ -5,9 +5,220 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: #E0F2F7 !important;
+  color: #0077B6 !important;
+ 
+  
+  /*  */
 }
-
+.pic{
+    border-color:   #07252d ;;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.formContainer{
+  display: flex;
+}
+
+.buttons2{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.buttons2 Button{
+  min-width: 40%;
+}
+
+.PuzzleContainer{
+display: flex;
+width: 100vw;
+align-items: center;
+justify-content: space-evenly;
+flex-wrap: wrap;
+gap: 1rem;
+height: fit-content;
+}
+
+.divTime{
+  border: 1px black solid;
+  border-radius: 16%;
+  font-size: 2rem;
+  padding: 0.6rem;
+  margin: 0.4rem;
+  margin-top: 10rem ;
+}
+
+.card1{
+  width: 18rem;
+  color: #333333;
+}
+
+@media (max-width:442px) {
+  .divTime{
+    font-size: 1rem;
+  }
+  Card{
+    width: 1rem !important;
+  }
+  .card1{
+    width: 15rem;
+  }
+}
+
+.timetext{
+  font-size: 1.2rem;
+}
+
+.score{
+  font-size: 3rem;
+}
+
+.wordsplit{
+  text-align:center;
+  line-height: 3rem;
+  white-space: nowrap;
+  letter-spacing: 0.06rem;
+  /*  */
+  
+}
+
+
+
+
+
+/* Login / Register data */
+
+
+
+/* Active */
+.active{
+text-decoration:underline !important;
+border-style: double;
+border-radius: 20%;
+}
+
+
+
+
+
+/* New Added items */
+.App{
+animation: zoomInDown 1s,
+      flip 0.5s 1s,
+      fadeIn 1s 1.6s;
+flex: 6;
+}
+
+.login{
+display: flex;
+justify-content:space-around;
+align-items:center;
+flex-wrap: wrap;
+}
+.form{
+  flex: 6;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width:990px){
+.login{
+flex-direction: column ;
+}
+.App{
+padding-top: 20px ;
+padding-left: 0px;
+}
+.form{
+margin-top: 0px;
+}
+}
+
+
+/* Register */
+.tab{
+font-family: 'Roboto', sans-serif;
+font-size: 24px;
+}
+
+.googleFont{
+font-family: 'Roboto', sans-serif;
+font-size: 30px;
+}
+
+.terms{
+font-size: 10px;
+}
+
+@media (max-width:990px){
+.tab{
+padding-left: 120px;
+}
+}
+
+.register{
+  background-color: transparent;
+}
+
+/* Social Media icons */
+.socialicons{
+  font-size: 30px;
+}
+
+.socialiconsparent{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+/* Charts */
+/* .bar{
+  position: relative !important;
+height: 30wh !important;
+} */
+
+/* .Piechart */
+
+
+
+/* Gauge */
+.mygauge{
+  background-color: #f2f2f2;
+  border: 10px solid #ccc;
+}
+
+.MaxCard{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.gagtext{
+  color: #555;
+}
+
+/* Pie */
+.AllPie{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-evenly;
+}
+
+.myHeading{
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0.6rem;
+  letter-spacing: 0.2rem;
+  animation: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
