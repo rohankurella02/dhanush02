@@ -40,12 +40,12 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 })
 
 app.use('*',(request,response)=>{
-    app.use(exp.static(path.resolve(__dirname, 'build')));
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    app.use(exp.static(path.resolve(__dirname, './build')));
+    res.sendFile(path.resolve(__dirname, './build', 'index.html'));
 })
 
 app.use((request,response,next)=>{
@@ -56,4 +56,4 @@ app.use((error,request,response,next)=>{
     response.send({message:'Error',payload:`Errorr is ${error.message}`})
 })
 
-app.listen(process.env.PORT || 4000,()=>console.log("Server is listening at port number 4000"))
+app.listen(4000,()=>console.log("Server is listening at port number 4000"))
