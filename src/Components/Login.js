@@ -57,6 +57,7 @@ function Login() {
         console.log(obj)
         localStorage.setItem("Key1",JSON.stringify(obj))
         localStorage.setItem("Login",JSON.stringify(true))
+         navigate("/Admin")
 
       }
     }).catch((err)=>{
