@@ -6,7 +6,7 @@ app.use(exp.urlencoded({ extended: false }));
 app.use(exp.json())
 
 const path=require('path');
-app.use(exp.static(path.join(__dirname,"build")))
+app.use(exp.static(path.join(__dirname,'build')))
 app.use(exp.static(path.join(__dirname, 'public')));
 const Userapp=require("./API/user")
 const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority';
@@ -14,19 +14,6 @@ const mclient=require("mongodb").MongoClient;
 app.use('/user-api',Userapp)
 app.use('/Score-api',Scoreapp)
 
-// // ---------------deployment--------------- 
-// if (true){
-//     app.use(exp.static(path.join(__dirname,'build')))
-//     app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
-//       res.sendFile(path.join(__dirname, './build/index.html'));
-//     });
-//     app.get('*',(request,response)=>{
-//       response.sendFile(path.resolve(__dirname,'build','index.html'))
-//     })
-//   }
-  
-  
-  // ---------------deployment----------------
 
 
 mclient.connect(Dburl)
@@ -42,12 +29,11 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendFile(path.resolve('build', 'index.html'));
 })
 
 app.use('*',(request,response)=>{
-    app.use(exp.static(path.resolve(__dirname, 'build')));
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    response.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.use((request,response,next)=>{
