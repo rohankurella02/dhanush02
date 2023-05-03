@@ -33,6 +33,7 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
     res.sendFile(path.resolve('build', 'index.html'));
 })
 
