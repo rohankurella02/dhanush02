@@ -5,7 +5,7 @@ require('dotenv').config()
 
 
 const path=require('path');
-app.use(exp.static(path.join(__dirname,"build")))
+app.use(exp.static(path.join(__dirname,"./build")))
 const Userapp=require("./API/user")
 const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
 const mclient=require("mongodb").MongoClient;
