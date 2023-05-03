@@ -8,7 +8,7 @@ const path=require('path');
 app.use(exp.static(path.join(__dirname,"build")))
 app.use(exp.static(path.join(__dirname, 'public')));
 const Userapp=require("./API/user")
-const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
+const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority';
 const mclient=require("mongodb").MongoClient;
 app.use('/user-api',Userapp)
 app.use('/Score-api',Scoreapp)
