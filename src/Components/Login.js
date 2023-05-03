@@ -15,6 +15,7 @@ import Register from './Register';
 
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { GrLogin } from "react-icons/gr";
+import axios from 'axios';
 
 function Login() {
   let [logInData,newlogInData]=useState([]);
@@ -46,13 +47,36 @@ function Login() {
       dispatch(userLogin(xdata));
     // console.log(xdata)
     setmyData(xdata)
-    localStorage.setItem("Key1",JSON.stringify(xdata))
-    localStorage.setItem("Login",JSON.stringify(true))
+    axios.post('http://localhost:4000/user-api/getname',xdata).then((res)=>{
+      if(res.data.message=='EmailId correct'){
+        console.log(res.data.payload)
+        let obj={
+          UserName:res.data.payload,
+          Password:xdata.Password
+        }
+        console.log(obj)
+        localStorage.setItem("Key1",JSON.stringify(obj))
+        localStorage.setItem("Login",JSON.stringify(true))
+
+      }
+    }).catch((err)=>{
+      console.log("Err of username fetching")
+    })
+
     };
     useEffect(() => {
       if (isSuccess) {
-
-        navigate('/Home')
+        let loginstatus=JSON.parse(localStorage.getItem("Login"))
+        let obj2=JSON.parse(localStorage.getItem("Key1"))
+        if(loginstatus==true){
+          if(obj2.UserName!='Dhanush'){
+            navigate('/Home')
+          }
+          else{
+            navigate("/Admin")
+          }
+          
+        }
       }
     }, [isSuccess, isError]);
        navigate=useNavigate();
@@ -73,7 +97,7 @@ function Login() {
      className="w-25 mx-auto d-block mypic"/>
     <Form onSubmit={handleSubmit(onSubmit)} className='shadow-lg text-center border rounded border-2 border-dark  w-50 p-3 m-1 mt-3 mx-auto form1 bg-white'> 
   <Form.Group className="mb-3 " controlId="exampleForm.ControlInput1">
-    <Form.Control type="text" placeholder="Username" {...register("UserName",{required: true})}  />
+    <Form.Control type="text" placeholder="Email" {...register("Email",{required: true})}  />
     {errors.Name?.type==='required' && <p className='text-danger text-start '>*This field is required</p>}
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
