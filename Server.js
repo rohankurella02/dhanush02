@@ -7,21 +7,21 @@ require('dotenv').config()
 const path=require('path');
 app.use(exp.static(path.join(__dirname,"build")))
 const Userapp=require("./API/user")
-const Dburl=process.env.DATA_BASE_CONNECTION_URL || 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
+const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
 const mclient=require("mongodb").MongoClient;
 app.use('/user-api',Userapp)
 app.use('/Score-api',Scoreapp)
 
-// ---------------deployment--------------- 
-if (true){
-    app.use(exp.static(path.join(__dirname,"./build")))
-    app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
-      res.sendFile(path.join(__dirname, './build/index.html'));
-    });
-    app.get('*',(request,response)=>{
-      response.sendFile(path.resolve(__dirname,'build','index.html'))
-    })
-  }
+// // ---------------deployment--------------- 
+// if (true){
+//     app.use(exp.static(path.join(__dirname,"./build")))
+//     app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+//       res.sendFile(path.join(__dirname, './build/index.html'));
+//     });
+//     app.get('*',(request,response)=>{
+//       response.sendFile(path.resolve(__dirname,'build','index.html'))
+//     })
+//   }
   
   
   // ---------------deployment----------------
@@ -38,8 +38,14 @@ mclient.connect(Dburl)
 })
 .catch(err=>console.log("Error occured in connection to DB is ",err))
 
+//get request for home page
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+})
+
 app.use('*',(request,response)=>{
-    response.sendFile(path.join(__dirname,'./build/index.html'))
+    app.use(exp.static(path.resolve(__dirname, 'build')));
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.use((request,response,next)=>{
@@ -47,7 +53,7 @@ app.use((request,response,next)=>{
 })
 
 app.use((error,request,response,next)=>{
-    response.send({message:'Error',payload:`Error is ${error.message}`})
+    response.send({message:'Error',payload:`Errorr is ${error.message}`})
 })
 
 app.listen(process.env.PORT || 4000,()=>console.log("Server is listening at port number 4000"))
