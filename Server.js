@@ -48,6 +48,6 @@ app.use((error,request,response,next)=>{
     response.send({message:'Error',payload:`Errorr is ${error.message}`})
 })
 
-app.listen(4000,()=>console.log("Server is listening at port number 4000"))
-
-module.exports = app
+app.listen(4000,() =>
+    console.log("Server is listening at port number 4000"))
+    
