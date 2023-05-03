@@ -23,7 +23,7 @@ function Submissions() {
   let [arr,setarr]=useState([]);
   let loginstatus=JSON.parse(localStorage.getItem("Login"))
   if(loginstatus==true){
-    axios.get("http://localhost:4000/Score-api/get-Score/"+user)
+    axios.get("/Score-api/get-Score/"+user)
     .then((response)=>{
         // alert((response.data.message));
         var tem=response.data.payload

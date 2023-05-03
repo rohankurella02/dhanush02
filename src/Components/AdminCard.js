@@ -8,7 +8,7 @@ import axios from "axios";
 function AdminCard() {
   let [arr,setarr]=useState([]);
   useEffect(()=>{
-    axios.get("http://localhost:4000/Score-api/get-Scores").then((response)=>{
+    axios.get("/Score-api/get-Scores").then((response)=>{
       var tem=response.data.payload;
       setarr(tem)
 

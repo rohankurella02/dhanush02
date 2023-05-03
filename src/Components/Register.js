@@ -19,7 +19,7 @@ function Register() {
         // console.log(data.photo.length)
         data.userType='User'
         console.log(data)
-        axios.post("http://localhost:4000/user-api/create-users",data)
+        axios.post("/user-api/create-users",data)
         .then((response)=>{
             alert((response.data.message));
             if(response.data.message==="User has created Successfully.Now please Login"){

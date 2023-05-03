@@ -1,20 +1,27 @@
 const exp=require("express");
 const Scoreapp=require("./API/Score");
 const app=exp()
+
 require('dotenv').config()
+
 app.use(exp.urlencoded({ extended: false }));
 app.use(exp.json())
+
 const cors=require('cors');
 
 app.use(cors({
     origin:"*"
 }))
+
 const path=require('path');
+
 app.use(exp.static(path.join(__dirname,'build')))
 app.use(exp.static(path.join(__dirname, 'public')));
+
 const Userapp=require("./API/user")
 const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority';
 const mclient=require("mongodb").MongoClient;
+
 app.use('/user-api',Userapp)
 app.use('/Score-api',Scoreapp)
 
@@ -33,7 +40,8 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
+    //set header for serving javascript file
+    res.setHeader('Content-Type', 'text/javascript');
     res.sendFile(path.resolve('build', 'index.html'));
 })
 
@@ -51,4 +59,4 @@ app.use((error,request,response,next)=>{
 
 app.listen(4000,() =>
     console.log("Server is listening at port number 4000"))
-    
+

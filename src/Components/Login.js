@@ -47,7 +47,7 @@ function Login() {
       dispatch(userLogin(xdata));
     // console.log(xdata)
     setmyData(xdata)
-    axios.post('http://localhost:4000/user-api/getname',xdata).then((res)=>{
+    axios.post('/user-api/getname',xdata).then((res)=>{
       if(res.data.message=='EmailId correct'){
         console.log(res.data.payload)
         let obj={

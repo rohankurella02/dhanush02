@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function LeaderBord() {
   let [arr,setarr]=useState([]);
-    axios.get("http://localhost:4000/Score-api/get-Scores").then((response)=>{
+    axios.get("/Score-api/get-Scores").then((response)=>{
       var tem=response.data.payload
       tem.sort((a,b)=>{
         if(a.Score!=b.Score){
