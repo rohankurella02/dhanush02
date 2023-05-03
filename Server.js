@@ -5,27 +5,26 @@ require('dotenv').config()
 
 
 const path=require('path');
-app.use(exp.static(path.join(__dirname,"./build")))
+app.use(exp.static(path.join(__dirname,"build")))
 const Userapp=require("./API/user")
-const Dburl=process.env.DATA_BASE_CONNECTION_URL;
+const Dburl=process.env.DATA_BASE_CONNECTION_URL || 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
 const mclient=require("mongodb").MongoClient;
 app.use('/user-api',Userapp)
 app.use('/Score-api',Scoreapp)
 
 // ---------------deployment--------------- 
-// if (process.env.NODE_ENV==="production"){
-//     app.use(exp.static(path.join(__dirname,"./build")))
-//     app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
-//       res.sendFile(path.join(__dirname, './build/index.html'));
-//     });
-//     app.get('*',(request,response)=>{
-//       response.sendFile(path.resolve(__dirname,'build','index.html'))
-//     })
-//   }
+if (true){
+    app.use(exp.static(path.join(__dirname,"./build")))
+    app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+      res.sendFile(path.join(__dirname, './build/index.html'));
+    });
+    app.get('*',(request,response)=>{
+      response.sendFile(path.resolve(__dirname,'build','index.html'))
+    })
+  }
   
   
   // ---------------deployment----------------
-
 
 
 mclient.connect(Dburl)
