@@ -4,7 +4,11 @@ const app=exp()
 require('dotenv').config()
 app.use(exp.urlencoded({ extended: false }));
 app.use(exp.json())
+const cors=require('cors');
 
+app.use(cors({
+    origin:"*"
+}))
 const path=require('path');
 app.use(exp.static(path.join(__dirname,'build')))
 app.use(exp.static(path.join(__dirname, 'public')));
