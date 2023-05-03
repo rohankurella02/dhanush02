@@ -67,7 +67,7 @@ Userapp.post('/create-users',expressAsyncHandler(async(request,response)=>{
 Userapp.post('/login',expressAsyncHandler(async(request,response)=>{
     let newUser=request.body
     let userCollectionObject=request.app.get('userCollectionObject');
-    let resultOfUserName= await userCollectionObject.findOne({UserName:newUser.UserName});
+    let resultOfUserName= await userCollectionObject.findOne({Email:newUser.Email});
   let result = false
     if(resultOfUserName!=null){
       if(newUser.Password ==resultOfUserName.Password) {
@@ -86,6 +86,20 @@ Userapp.post('/login',expressAsyncHandler(async(request,response)=>{
     }
 
 }))
+
+Userapp.post('/getname',expressAsyncHandler(async(request,response)=>{
+    let newUser=request.body
+    let userCollectionObject=request.app.get('userCollectionObject');
+    let resultOfUserName= await userCollectionObject.findOne({Email:newUser.Email});
+    if(resultOfUserName!=null){
+        response.send({message:'EmailId correct',payload:resultOfUserName.UserName})
+    }
+    else{
+        response.send({message:"No EmailId"})
+    }
+}))
+
+
 
 
 
