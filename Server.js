@@ -5,7 +5,8 @@ require('dotenv').config()
 
 
 const path=require('path');
-app.use(exp.static(path.join(__dirname,"./build")))
+app.use(exp.static(path.join(__dirname,"build")))
+app.use(exp.static(path.join(__dirname, 'public')));
 const Userapp=require("./API/user")
 const Dburl= 'mongodb+srv://ldhanush02:Dhanush*123@databasecluster.xldj4.mongodb.net/Puzzle2023?retryWrites=true&w=majority;
 const mclient=require("mongodb").MongoClient;
@@ -40,12 +41,12 @@ mclient.connect(Dburl)
 
 //get request for home page
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.use('*',(request,response)=>{
-    app.use(exp.static(path.resolve(__dirname, './build')));
-    res.sendFile(path.resolve(__dirname, './build', 'index.html'));
+    app.use(exp.static(path.resolve(__dirname, 'build')));
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 app.use((request,response,next)=>{
