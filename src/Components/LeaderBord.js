@@ -496,7 +496,7 @@ function LeaderBord() {
 </thead>
 <tbody>
   {
-    arr.map((x)=>
+    arr?.map((x)=>
         <tr>
         <th scope="row">Puzzle {x.No}</th>
         <td>{x.UserName}</td>

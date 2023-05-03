@@ -7,7 +7,7 @@ ChartJS.register(LineElement,CategoryScale,LinearScale, Tooltip, Legend,PointEle
 function TimeLine(props) {
     console.log(props)
    let arr=props.item
-const countBy = (arr, prop) => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {});
+const countBy = (arr, prop) => arr?.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {});
 // console.log("CountBy",countBy(arr,"Date"))
 let reducedArray=countBy(arr,'Date')
 console.log(reducedArray)

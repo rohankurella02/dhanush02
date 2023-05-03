@@ -271,7 +271,7 @@ useEffect(()=>{
       var stm="Cognitive flexibility (Soft skill) Percentage : "+0+" %"
       swal("Wrong", stm, "error");
     }
-    axios.post("http://localhost:4000/Score-api/create-Score",data)
+    axios.post("/Score-api/create-Score",data)
         .then((response)=>{
             if(response.data.message==="Score Added"){
             }

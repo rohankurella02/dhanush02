@@ -10,7 +10,7 @@ function MaxScore(props) {
    }
    let HighPercent=[]
    let chfun=(idno)=>{
-  let maxValue1 = arr.reduce((acc, value) => {
+  let maxValue1 = arr?.reduce((acc, value) => {
           return (acc = value.UserName==idno ? (acc.Percentage > value.Percentage ? acc : value):acc);
         },obj);
         HighPercent.push(maxValue1)
@@ -22,7 +22,7 @@ const funcall=(x)=>{
     
 }
 // console.log("Time",time)
-var no = [...new Set(arr.map((item) => item.UserName))];
+var no = [...new Set(arr?.map((item) => item.UserName))];
 // var no=["Dhanush","Uday","Ram"]
 for(var i of no){
   funcall(i)
@@ -31,7 +31,7 @@ for(var i of no){
   return (
     <div className="MaxCard">
     {
-        HighPercent.map((x)=>
+        HighPercent?.map((x)=>
         <HighCard item={x} />
         // console.log(x)
 

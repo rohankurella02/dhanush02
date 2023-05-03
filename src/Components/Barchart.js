@@ -10,10 +10,10 @@ function Barchart(props) {
     let mn=[]
     let tem=props.item
     let chfun=(x)=>{
-    let maxValue1 = tem.reduce((acc, value) => {
+    let maxValue1 = tem?.reduce((acc, value) => {
      return (acc = value.No==x ? (acc > value.Score ? acc : value.Score):acc);
    }, 0);
-   let minValue1 = tem.reduce((acc, value) => {
+   let minValue1 = tem?.reduce((acc, value) => {
      return (acc = value.No==x && value.Score!=0 ? (acc < value.Score ? acc : value.Score):acc);
    }, 101);
    mx.push(maxValue1)

@@ -9,10 +9,10 @@ function BarPercent(props) {
      let mx=[]
      let mn=[]
      let chfun=(x)=>{
-     let maxValue1 = arr.reduce((acc, value) => {
+     let maxValue1 = arr?.reduce((acc, value) => {
       return (acc = value.No==x ? (acc > value.Percentage ? acc : value.Percentage):acc);
     }, 0);
-    let minValue1 = arr.reduce((acc, value) => {
+    let minValue1 = arr?.reduce((acc, value) => {
       return (acc = value.No==x && value.Percentage!=0 ? (acc < value.Percentage ? acc : value.Percentage):acc);
     }, 101);
     mx.push(maxValue1)

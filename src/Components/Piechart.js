@@ -9,7 +9,7 @@ function Piechart(props) {
    let arr= props.item
      let time=[0,0,0,0]
      let chfun=(idno)=>{
-      arr.map((x) => {
+      arr?.map((x) => {
       if(x.No==idno){
         if(x.Time>=0 && x.Time<=10){
           time[0]=time[0]+1;

@@ -15,7 +15,7 @@ function AdminCard() {
   }).catch((err)=>{
     alert("Error in fetching data for LeaderBoard")
   })
-  },[arr])
+  },[])
 
 
 
