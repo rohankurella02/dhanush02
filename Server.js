@@ -2,7 +2,8 @@ const exp=require("express");
 const Scoreapp=require("./API/Score");
 const app=exp()
 require('dotenv').config()
-
+app.use(exp.urlencoded({ extended: false }));
+app.use(exp.json())
 
 const path=require('path');
 app.use(exp.static(path.join(__dirname,"build")))
@@ -15,7 +16,7 @@ app.use('/Score-api',Scoreapp)
 
 // // ---------------deployment--------------- 
 // if (true){
-//     app.use(exp.static(path.join(__dirname,"./build")))
+//     app.use(exp.static(path.join(__dirname,'build')))
 //     app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
 //       res.sendFile(path.join(__dirname, './build/index.html'));
 //     });
