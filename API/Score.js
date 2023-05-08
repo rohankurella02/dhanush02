@@ -7,7 +7,7 @@ require('dotenv').config()
 const natural = require('natural');
 const tokenizer = new natural.WordTokenizer();
 const stopWords = new Set(natural.stopwords);
-const spacy = require('spacy');
+// const spacy = require('spacy');
 
 // Cloudinary
 // var cloudinary = require("cloudinary").v2;

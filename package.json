@@ -39,7 +39,6 @@
     "react-router-dom": "^6.11.0",
     "react-scripts": "5.0.1",
     "react-timer-hook": "^3.0.5",
-    "spacy": "^0.0.4",
     "stream-browserify": "^3.0.0",
     "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
